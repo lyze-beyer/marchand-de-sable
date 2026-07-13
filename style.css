@@ -1,27 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italianno&display=swap');
 
-
 * {
     box-sizing: border-box;
 }
 
-
 body {
-
     margin: 0;
     padding: 0;
-
     background: #000;
-
     color: #f3ead8;
-
     height: 100vh;
     width: 100vw;
-
     overflow: hidden;
-
     font-family: "Cormorant Garamond", serif;
-
 }
 
 
@@ -31,7 +22,6 @@ body {
     width: 100vw;
 
     display: flex;
-
     justify-content: center;
     align-items: center;
 
@@ -42,7 +32,6 @@ body {
 }
 
 
-
 /* Texte */
 
 .phrase {
@@ -50,29 +39,28 @@ body {
     position: absolute;
 
     width: 92%;
+
     max-width: 1100px;
 
     font-size: 4rem;
 
     line-height: 1.35;
 
-    letter-spacing: 0.02em;
+    letter-spacing: 0.03em;
 
-    opacity: 0;
-
-    transition: opacity 5s ease;
+    opacity: 1;
 
 }
 
 
 
-/* Nom du personnage */
+/* Écriture particulière */
 
 .phrase span {
 
     font-family: "Italianno", cursive;
 
-    font-size: 1.35em;
+    font-size: 1.3em;
 
 }
 
@@ -85,14 +73,14 @@ body {
     position: absolute;
 
     left: 50%;
+
     top: 50%;
 
     transform: translate(-50%, -50%);
 
-    opacity: 0;
+    opacity: 1;
 
 }
-
 
 
 .moon {
@@ -108,9 +96,9 @@ body {
 
     box-shadow:
 
-    0 0 30px rgba(243,234,216,0.5),
+    0 0 35px rgba(243,234,216,0.5),
 
-    0 0 90px rgba(243,234,216,0.2);
+    0 0 100px rgba(243,234,216,0.2);
 
 
     animation: respiration 7s infinite ease-in-out;
@@ -119,11 +107,9 @@ body {
 
 
 
-/* Texte sous la lune */
-
 .play p {
 
-    margin-top: 45px;
+    margin-top: 40px;
 
     font-size: 1.8rem;
 
@@ -133,41 +119,11 @@ body {
 
 
 
-/* Apparition de la lune */
-
-.lune-visible {
-
-    animation: apparitionLune 5s ease forwards;
-
-}
-
-
-
-@keyframes apparitionLune {
-
-    from {
-
-        opacity: 0;
-
-    }
-
-
-    to {
-
-        opacity: 1;
-
-    }
-
-}
-
-
-
-/* Respiration */
+/* Respiration de la lune */
 
 @keyframes respiration {
 
-
-    0%,100% {
+    0%, 100% {
 
         transform: scale(1);
 
