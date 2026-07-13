@@ -1,60 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
+const bouton = document.querySelector(".play");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+bouton.addEventListener("click", () => {
 
-    <title>Sur les traces du Marchand de sable</title>
+    bouton.classList.add("active");
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    document.querySelector(".experience").classList.add("commence");
 
-<body>
-
-<div class="experience">
-
-    <div class="phrase">
-        Vous êtes sur les traces du<br>
-        <span>Marchand de sable.</span>
-    </div>
-
-    <div class="phrase">
-        Encore un pas…
-    </div>
-
-    <div class="phrase">
-        Ralentissez.
-    </div>
-
-    <div class="phrase">
-        Respirez.
-    </div>
-
-    <div class="phrase">
-        Mettez vos écouteurs.
-    </div>
-
-    <div class="phrase">
-        Laissez votre regard se poser<br>
-        sur le paysage.
-    </div>
-
-    <div class="play">
-
-        <div class="moon"></div>
-
-        <p>
-            Touchez le cercle pour débuter<br>
-            votre voyage sonore.
-        </p>
-
-    </div>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+});
