@@ -1,35 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
 body {
-    background: red !important;
     margin: 0;
     padding: 0;
     background: #000;
     color: #f5f0e6;
     height: 100vh;
+    overflow: hidden;
     font-family: "Italianno", cursive;
 }
 
 .experience {
     height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
 .phrase {
+    position: absolute;
+    opacity: 0;
     font-size: 3rem;
     line-height: 1.5;
-    margin: 20px;
+    max-width: 900px;
+}
+
+.phrase:nth-child(1) {
+    opacity: 1;
 }
 
 .play {
-    margin-top: 40px;
+    position: absolute;
+    bottom: 15%;
     font-size: 4rem;
+    color: #f5f0e6;
 }
 
 .play p {
     font-size: 1.5rem;
+    margin-top: 15px;
 }
