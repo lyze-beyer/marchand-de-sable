@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italianno&display=swap');
+
 
 body {
     margin: 0;
@@ -10,8 +11,10 @@ body {
     font-family: "Cormorant Garamond", serif;
 }
 
+
 .experience {
     height: 100vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,166 +23,247 @@ body {
 }
 
 
-/* Les phrases */
+/* Texte principal */
 
 .phrase {
+
     position: absolute;
-    width: 90%;
-    max-width: 600px;
-    font-size: 3.5rem;
-    line-height: 1.4;
+
+    width: 92%;
+    max-width: 1200px;
+
+    font-size: 4.8rem;
+
+    line-height: 1.25;
+
+    font-weight: 400;
+
     opacity: 0;
-    animation: apparition 5s forwards;
+
+    animation: apparition 6s forwards;
+
 }
 
 
-/* Le nom du Marchand de sable */
+/* Calligraphie du Marchand de sable */
 
 .phrase span {
+
     font-family: "Italianno", cursive;
+
     font-size: 1.25em;
+
 }
 
 
-/* Rythme des apparitions */
+/* Chronologie */
 
 .phrase:nth-child(1) {
-    animation-delay: 1s;
+    animation-delay: 2s;
 }
+
 
 .phrase:nth-child(2) {
-    animation-delay: 6s;
+    animation-delay: 9s;
 }
+
 
 .phrase:nth-child(3) {
-    animation-delay: 10s;
-}
-
-.phrase:nth-child(4) {
     animation-delay: 14s;
 }
 
-.phrase:nth-child(5) {
-    animation-delay: 18s;
+
+.phrase:nth-child(4) {
+    animation-delay: 19s;
 }
 
-.phrase:nth-child(6) {
+
+.phrase:nth-child(5) {
     animation-delay: 24s;
 }
 
 
-/* Apparition douce */
+.phrase:nth-child(6) {
+    animation-delay: 32s;
+}
+
+
+
+/* Apparition des phrases */
 
 @keyframes apparition {
 
     0% {
+
         opacity: 0;
-        transform: translateY(15px);
+
+        transform: translateY(20px);
+
     }
 
-    30% {
+
+    25% {
+
         opacity: 1;
+
         transform: translateY(0);
+
     }
 
-    80% {
+
+    75% {
+
         opacity: 1;
+
     }
+
 
     100% {
+
         opacity: 0;
+
     }
 
 }
+
+
+
+/* La lune */
+
+.play {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    opacity: 0;
+
+    animation: apparitionLune 4s forwards;
+
+    animation-delay: 40s;
+
+}
+
 
 
 /* Cercle lunaire */
 
-.play {
-    position: absolute;
-    bottom: 12%;
-    opacity: 0;
-    animation: apparitionLune 3s forwards;
-    animation-delay: 31s;
-}
-
-
 .moon {
 
-    width: 75px;
-    height: 75px;
+    width: 220px;
+
+    height: 220px;
+
 
     border-radius: 50%;
 
-    border: 1px solid #f3ead8;
 
-    margin: auto;
+    border: 2px solid #f3ead8;
+
 
     box-shadow:
-    0 0 15px rgba(243,234,216,0.5),
-    0 0 40px rgba(243,234,216,0.2);
 
-    animation: respiration 5s infinite;
+    0 0 30px rgba(243,234,216,0.6),
+
+    0 0 90px rgba(243,234,216,0.25);
+
+
+
+    animation: respiration 6s infinite;
 
 }
+
 
 
 /* Texte sous la lune */
 
 .play p {
 
-    margin-top: 25px;
+    margin-top: 45px;
 
-    font-size: 3.5rem;
+    font-size: 2rem;
 
-    line-height: 1.5;
+    line-height: 1.4;
 
 }
 
 
-/* Apparition de la lune */
+
+/* Apparition lune */
 
 @keyframes apparitionLune {
 
+
     from {
+
         opacity: 0;
+
     }
 
+
     to {
+
         opacity: 1;
+
     }
 
 }
 
 
-/* Respiration de la lune */
+
+/* Respiration */
 
 @keyframes respiration {
 
+
     0%,100% {
+
         transform: scale(1);
-        opacity: 0.8;
+
     }
 
+
     50% {
-        transform: scale(1.08);
-        opacity: 1;
+
+        transform: scale(1.06);
+
     }
 
 }
 
 
-/* Adaptation téléphone */
+
+/* Téléphones */
 
 @media (max-width: 600px) {
 
+
     .phrase {
-        font-size: 2.4rem;
-        width: 90%;
+
+        width: 94%;
+
+        font-size: 3.2rem;
+
     }
 
-    .play p {
-        font-size: 1.3rem;
+
+    .moon {
+
+        width: 170px;
+
+        height: 170px;
+
     }
+
+
+    .play p {
+
+        font-size: 1.5rem;
+
+    }
+
 
 }
