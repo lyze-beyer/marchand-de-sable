@@ -1,13 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Italianno&display=swap');
 
 body {
     margin: 0;
     padding: 0;
     background: #000;
-    color: #f5f0e6;
+    color: #f3ead8;
     height: 100vh;
     overflow: hidden;
-    font-family: "Italianno", cursive;
+    font-family: "Cormorant Garamond", serif;
 }
 
 .experience {
@@ -16,28 +16,152 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
+    position: relative;
 }
+
+
+/* Texte des phrases */
 
 .phrase {
     position: absolute;
-    opacity: 0;
+    width: 80%;
+    max-width: 900px;
     font-size: 3rem;
     line-height: 1.5;
-    max-width: 900px;
+    opacity: 0;
+    animation: apparition 5s forwards;
 }
 
-.phrase:nth-child(1) {
-    opacity: 1;
+
+/* Le nom du personnage */
+
+.phrase span {
+    font-family: "Italianno", cursive;
+    font-size: 1.25em;
 }
+
+
+/* Rythme des apparitions */
+
+.phrase:nth-child(1) {
+    animation-delay: 2s;
+}
+
+.phrase:nth-child(2) {
+    animation-delay: 8s;
+}
+
+.phrase:nth-child(3) {
+    animation-delay: 13s;
+}
+
+.phrase:nth-child(4) {
+    animation-delay: 18s;
+}
+
+.phrase:nth-child(5) {
+    animation-delay: 23s;
+}
+
+.phrase:nth-child(6) {
+    animation-delay: 30s;
+}
+
+
+/* Apparition douce */
+
+@keyframes apparition {
+
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* Le cercle lunaire */
 
 .play {
     position: absolute;
-    bottom: 15%;
-    font-size: 4rem;
-    color: #f5f0e6;
+    bottom: 12%;
+    opacity: 0;
+    animation: apparitionLune 4s forwards;
+    animation-delay: 38s;
 }
 
+
+.moon {
+
+    width: 75px;
+    height: 75px;
+
+    border-radius: 50%;
+
+    border: 1px solid #f3ead8;
+
+    margin: auto;
+
+    box-shadow:
+    0 0 15px rgba(243,234,216,0.5),
+    0 0 40px rgba(243,234,216,0.2);
+
+    animation: respiration 5s infinite;
+}
+
+
+/* Texte sous la lune */
+
 .play p {
-    font-size: 1.5rem;
-    margin-top: 15px;
+
+    margin-top: 25px;
+
+    font-size: 1.4rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* Apparition de la lune */
+
+@keyframes apparitionLune {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* Respiration de la lune */
+
+@keyframes respiration {
+
+    0%,100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+
 }
