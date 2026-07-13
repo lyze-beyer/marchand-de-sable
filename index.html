@@ -1,56 +1,104 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sur les traces du Marchand de sable</title>
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
-<link rel="stylesheet" href="style.css">
-</head>
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #f5f0e6;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "Italianno", cursive;
+}
 
-<body>
+.experience {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-<div class="experience">
+.phrase {
+    position: absolute;
+    opacity: 0;
+    font-size: 3.2rem;
+    line-height: 1.5;
+    max-width: 900px;
+    animation: apparition 4s forwards;
+}
 
-    <div class="phrase">
-        Vous êtes sur les traces du<br>
-        <span>Marchand de sable.</span>
-    </div>
+.phrase:nth-child(1) {
+    animation-delay: 1s;
+}
 
-    <div class="phrase">
-        Prenez le temps.
-    </div>
+.phrase:nth-child(2) {
+    animation-delay: 5s;
+}
 
-    <div class="phrase">
-        Mettez votre casque.
-    </div>
+.phrase:nth-child(3) {
+    animation-delay: 9s;
+}
 
-    <div class="phrase">
-        Laissez votre regard se poser<br>
-        sur le paysage.
-    </div>
+.phrase:nth-child(4) {
+    animation-delay: 13s;
+}
 
-    <div class="phrase">
-        Ou fermez les yeux.
-    </div>
+.phrase:nth-child(5) {
+    animation-delay: 17s;
+}
 
-    <div class="phrase">
-        Le paysage fait partie de l'œuvre.
-    </div>
+.phrase:nth-child(6) {
+    animation-delay: 21s;
+}
 
-    <div class="phrase">
-        Lorsque vous serez prêt…
-    </div>
+.phrase:nth-child(7) {
+    animation-delay: 25s;
+}
 
-    <div class="play">
-        ◯
-        <p>Touchez le cercle pour commencer</p>
-    </div>
+.play {
+    position: absolute;
+    bottom: 15%;
+    opacity: 0;
+    font-size: 4rem;
+    animation: apparition_cercle 3s forwards, pulsation 2s infinite;
+    animation-delay: 30s, 33s;
+}
 
-</div>
+.play p {
+    font-size: 1.5rem;
+    margin-top: 15px;
+}
 
-<script src="script.js"></script>
+@keyframes apparition {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
-</body>
-</html>
+@keyframes apparition_cercle {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulsation {
+    0%,100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
