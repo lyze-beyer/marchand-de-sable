@@ -1,1 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    color: #f5f0e6;
+    height: 100vh;
+    font-family: "Italianno", cursive;
+}
+
+.experience {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.phrase {
+    font-size: 3rem;
+    line-height: 1.5;
+    margin: 20px;
+}
+
+.play {
+    margin-top: 40px;
+    font-size: 4rem;
+}
+
+.play p {
+    font-size: 1.5rem;
+}
