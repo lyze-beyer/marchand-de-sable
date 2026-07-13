@@ -1,104 +1,21 @@
+</div>
 
-@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+    <div class="phrase">
+        Le paysage fait partie de l'œuvre.
+    </div>
 
-body {
-    margin: 0;
-    padding: 0;
-    background: #000;
-    color: #f5f0e6;
-    height: 100vh;
-    overflow: hidden;
-    font-family: "Italianno", cursive;
-}
+    <div class="phrase">
+        Lorsque vous serez prêt…
+    </div>
 
-.experience {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+    <div class="play">
+        ◯
+        <p>Touchez le cercle pour commencer</p>
+    </div>
 
-.phrase {
-    position: absolute;
-    opacity: 0;
-    font-size: 3.2rem;
-    line-height: 1.5;
-    max-width: 900px;
-    animation: apparition 4s forwards;
-}
+</div>
 
-.phrase:nth-child(1) {
-    animation-delay: 1s;
-}
+<script src="script.js"></script>
 
-.phrase:nth-child(2) {
-    animation-delay: 5s;
-}
-
-.phrase:nth-child(3) {
-    animation-delay: 9s;
-}
-
-.phrase:nth-child(4) {
-    animation-delay: 13s;
-}
-
-.phrase:nth-child(5) {
-    animation-delay: 17s;
-}
-
-.phrase:nth-child(6) {
-    animation-delay: 21s;
-}
-
-.phrase:nth-child(7) {
-    animation-delay: 25s;
-}
-
-.play {
-    position: absolute;
-    bottom: 15%;
-    opacity: 0;
-    font-size: 4rem;
-    animation: apparition_cercle 3s forwards, pulsation 2s infinite;
-    animation-delay: 30s, 33s;
-}
-
-.play p {
-    font-size: 1.5rem;
-    margin-top: 15px;
-}
-
-@keyframes apparition {
-    0% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes apparition_cercle {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes pulsation {
-    0%,100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.15);
-    }
-}
+</body>
+</html>
