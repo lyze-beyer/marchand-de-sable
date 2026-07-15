@@ -1,7 +1,36 @@
-const bouton = document.querySelector(".play");
+const phrases = document.querySelectorAll(".phrase");
+const lune = document.querySelector(".play");
 
-bouton.addEventListener("click", () => {
+let index = 0;
 
-    document.querySelector(".experience").classList.add("commence");
 
-});
+function afficherPhrase() {
+
+    if (index < phrases.length) {
+
+        phrases[index].classList.add("visible");
+
+        setTimeout(() => {
+
+            phrases[index].classList.remove("visible");
+
+            index++;
+
+            afficherPhrase();
+
+        }, 7000);
+
+    } else {
+
+        setTimeout(() => {
+
+            lune.classList.add("visible");
+
+        }, 3000);
+
+    }
+
+}
+
+
+afficherPhrase();
