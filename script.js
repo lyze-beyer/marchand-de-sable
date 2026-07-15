@@ -5,31 +5,38 @@ const vent = document.querySelector("#vent");
 let index = 0;
 
 
-/* Démarrage progressif du vent */
 function demarrerVent() {
 
     if (vent) {
 
         vent.volume = 0;
 
-        vent.play();
+        vent.play()
+        .then(() => {
 
-        let volume = 0;
+            let volume = 0;
 
-        const fondu = setInterval(() => {
+            const fondu = setInterval(() => {
 
-            volume += 0.02;
+                volume += 0.02;
 
-            if (volume >= 0.5) {
+                if (volume >= 0.5) {
 
-                volume = 0.5;
-                clearInterval(fondu);
+                    volume = 0.5;
+                    clearInterval(fondu);
 
-            }
+                }
 
-            vent.volume = volume;
+                vent.volume = volume;
 
-        }, 200);
+            }, 200);
+
+        })
+        .catch((erreur) => {
+
+            console.log("Le navigateur bloque le son :", erreur);
+
+        });
 
     }
 
