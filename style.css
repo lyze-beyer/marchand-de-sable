@@ -61,6 +61,15 @@ body {
 
     opacity: 0;
 
+    transition: opacity 6s ease;
+
+}
+
+
+.phrase.visible {
+
+    opacity: 1;
+
 }
 
 
