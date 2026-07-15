@@ -3,32 +3,40 @@ const vent = new Audio("vent-desert.mp3");
 vent.loop = true;
 vent.volume = 0;
 
-
-// Fondu d'entrée du vent
-function demarrerVent() {
-
-    vent.play();
-
-    let volume = 0;
-
-    const montee = setInterval(() => {
-
-        volume += 0.02;
-        vent.volume = volume;
-
-        if (volume >= 0.5) {
-            clearInterval(montee);
-        }
-
-    }, 100);
-
-}
+const lune = document.querySelector(".play");
 
 
-// Fondu de sortie du vent
-function arreterVent() {
+// Démarrage du vent au premier contact
+document.addEventListener("click", () => {
 
-    const descente = setInterval(() => {
+    if (vent.paused) {
+
+        vent.play();
+
+        let volume = 0;
+
+        const fonduEntree = setInterval(() => {
+
+            volume += 0.02;
+            vent.volume = volume;
+
+            if (volume >= 0.4) {
+                clearInterval(fonduEntree);
+            }
+
+        }, 100);
+
+    }
+
+}, { once: true });
+
+
+// Arrêt progressif quand on touche la lune
+lune.addEventListener("click", (event) => {
+
+    event.stopPropagation();
+
+    const fonduSortie = setInterval(() => {
 
         if (vent.volume > 0.02) {
 
@@ -38,30 +46,10 @@ function arreterVent() {
 
             vent.volume = 0;
             vent.pause();
-            clearInterval(descente);
+            clearInterval(fonduSortie);
 
         }
 
     }, 100);
-
-}
-
-
-// Démarrage du vent au premier contact
-document.addEventListener("click", () => {
-
-    if (vent.paused) {
-        demarrerVent();
-    }
-
-}, { once: true });
-
-
-// Quand on touche la lune
-const lune = document.querySelector(".play");
-
-lune.addEventListener("click", () => {
-
-    arreterVent();
 
 });
