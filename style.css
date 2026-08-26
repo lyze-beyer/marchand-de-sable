@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italianno&display=swap');
 
-
 * {
     box-sizing: border-box;
 }
 
-
 body {
-
     margin: 0;
     padding: 0;
 
@@ -21,39 +18,31 @@ body {
     overflow: hidden;
 
     font-family: "Cormorant Garamond", serif;
-
 }
 
-
-
 .experience {
-
     height: 100vh;
-
     width: 100vw;
 
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
 
     position: relative;
-
 }
 
 
-
-/* Les phrases */
+/* =========================
+   LES PHRASES
+   ========================= */
 
 .phrase {
-
     position: absolute;
 
     width: 92%;
-
     max-width: 1100px;
 
     font-size: 4rem;
@@ -64,38 +53,94 @@ body {
 
     opacity: 0;
 
-    transition: opacity 6s ease;
+    transition: opacity 2s ease;
 
+    pointer-events: none;
 }
-
-
 
 .phrase.visible {
-
     opacity: 1;
-
 }
 
-
-
 .phrase span {
-
     font-family: "Italianno", cursive;
 
     font-size: 1.35em;
-
 }
 
 
+/* =========================
+   POSITIONS DES PHRASES
+   ========================= */
 
-/* La lune / cercle final */
+/* Phrase 1 */
+
+.phrase:nth-child(2) {
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Phrase 2 */
+
+.phrase:nth-child(3) {
+    top: 30%;
+    left: 25%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Phrase 3 */
+
+.phrase:nth-child(4) {
+    top: 38%;
+    left: 75%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Phrase 4 */
+
+.phrase:nth-child(5) {
+    top: 68%;
+    left: 28%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Phrase 5 */
+
+.phrase:nth-child(6) {
+    top: 65%;
+    left: 72%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Phrase 6 */
+
+.phrase:nth-child(7) {
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================
+   LA LUNE / CERCLE FINAL
+   ========================= */
 
 .play {
-
     position: absolute;
 
     left: 50%;
-
     top: 50%;
 
     transform: translate(-50%, -50%);
@@ -103,104 +148,69 @@ body {
     opacity: 0;
 
     transition: opacity 6s ease;
-
 }
-
-
 
 .play.visible {
-
     opacity: 1;
-
 }
 
-
-
 .moon {
-
     width: 220px;
-
     height: 220px;
 
     border-radius: 50%;
 
     border: 2px solid #f3ead8;
 
-
     box-shadow:
-
-    0 0 30px rgba(243,234,216,0.5),
-
-    0 0 90px rgba(243,234,216,0.2);
-
+        0 0 30px rgba(243,234,216,0.5),
+        0 0 90px rgba(243,234,216,0.2);
 
     animation: respiration 7s infinite ease-in-out;
-
 }
 
-
-
 .play p {
-
     margin-top: 40px;
 
     font-size: 1.8rem;
 
     line-height: 1.5;
-
 }
 
 
-
-/* Respiration de la lune */
+/* =========================
+   RESPIRATION DE LA LUNE
+   ========================= */
 
 @keyframes respiration {
 
-
-    0%,100% {
-
+    0%, 100% {
         transform: scale(1);
-
     }
-
 
     50% {
-
         transform: scale(1.06);
-
     }
-
 }
 
 
+/* =========================
+   TÉLÉPHONE
+   ========================= */
 
-/* Téléphone */
-
-@media (max-width:600px) {
-
+@media (max-width: 600px) {
 
     .phrase {
-
         width: 94%;
-
         font-size: 3rem;
-
     }
-
 
     .moon {
-
         width: 170px;
-
         height: 170px;
-
     }
-
 
     .play p {
-
         font-size: 1.4rem;
-
     }
-
 }
