@@ -59,8 +59,16 @@ lune.addEventListener("click", function () {
 
 // QUAND LA CHANSON EST TERMINÉE = DÉMARRAGE DU POÈME
 
-chanson.addEventListener("ended", function () {
+let poemeLance = false;
 
-    poeme.play();
+chanson.addEventListener("timeupdate", function () {
+
+    if (!poemeLance && chanson.duration - chanson.currentTime <= 6) {
+
+        poemeLance = true;
+
+        poeme.play();
+
+    }
 
 });
