@@ -1,5 +1,6 @@
 const phrases = document.querySelectorAll(".phrase");
 const lune = document.querySelector(".play");
+const chanson = document.querySelector("#chanson");
 
 let index = 0;
 
@@ -44,3 +45,12 @@ function afficherPhrase() {
 }
 
 afficherPhrase();
+
+
+// CLIC SUR LA LUNE = DÉMARRAGE DE LA CHANSON
+
+lune.addEventListener("click", function () {
+
+    chanson.play();
+
+});
