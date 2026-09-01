@@ -1,84 +1,65 @@
-<!DOCTYPE html>
-<html lang="fr">
+const phrases = document.querySelectorAll(".phrase");
+const lune = document.querySelector(".play");
+const chanson = document.querySelector("#chanson");
+const poeme = document.querySelector("#poeme");
 
-<head>
+let index = 0;
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+function afficherPhrase() {
 
-    <title>Le Marchand de sable</title>
+    if (index < phrases.length) {
 
-    <link rel="stylesheet" href="style.css">
+        const phraseActuelle = phrases[index];
 
-</head>
+        // Apparition
+        phraseActuelle.classList.add("visible");
 
+        // La phrase reste visible 5 secondes
+        setTimeout(() => {
 
-<body>
+            // Disparition
+            phraseActuelle.classList.remove("visible");
 
+            // On attend avant la phrase suivante
+            setTimeout(() => {
 
-<div class="experience">
+                index++;
 
+                afficherPhrase();
 
-    <div class="paysage"></div>
+            }, 2000);
 
+        }, 5000);
 
-    <div class="phrase">
-        Vous êtes sur les traces du <span>Marchand de sable</span>.
-    </div>
+    } else {
 
+        // Toutes les phrases ont disparu.
+        // La lune apparaît après 3 secondes.
+        setTimeout(() => {
 
-    <div class="phrase">
-        Encore un pas…
-    </div>
+            lune.classList.add("visible");
 
+        }, 3000);
 
-    <div class="phrase">
-        Ralentissez.
-    </div>
+    }
+}
 
-
-    <div class="phrase">
-        Respirez.
-    </div>
-
-
-    <div class="phrase">
-        Mettez vos écouteurs.
-    </div>
-
-
-    <div class="phrase">
-        Laissez votre regard se poser sur le paysage.
-    </div>
+afficherPhrase();
 
 
-    <div class="play">
+// CLIC SUR LA LUNE = DÉMARRAGE DE LA CHANSON
 
-        <div class="moon"></div>
+lune.addEventListener("click", function () {
 
-        <p>
-            Touchez le cercle pour débuter votre voyage sonore
-        </p>
+    chanson.play();
 
-    </div>
+});
 
 
-</div>
+// QUAND LA CHANSON EST TERMINÉE = DÉMARRAGE DU POÈME
 
+chanson.addEventListener("ended", function () {
 
-<audio id="chanson">
-    <source src="Le marchand de sable mix 4 premaster.mp3" type="audio/mpeg">
-</audio>
+    poeme.play();
 
-
-<audio id="poeme">
-    <source src="voix poeme.wav" type="audio/wav">
-</audio>
-
-
-<script src="script.js"></script>
-
-
-</body>
-
-</html>
+});
