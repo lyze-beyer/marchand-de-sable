@@ -1,6 +1,7 @@
 const phrases = document.querySelectorAll(".phrase");
 const lune = document.querySelector(".play");
 const chanson = document.querySelector("#chanson");
+const poeme = document.querySelector("#poeme");
 
 let index = 0;
 
@@ -52,5 +53,14 @@ afficherPhrase();
 lune.addEventListener("click", function () {
 
     chanson.play();
+
+});
+
+
+// QUAND LA CHANSON EST TERMINÉE = DÉMARRAGE DU POÈME
+
+chanson.addEventListener("ended", function () {
+
+    poeme.play();
 
 });
