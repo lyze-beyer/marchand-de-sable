@@ -1,65 +1,66 @@
-const phrases = document.querySelectorAll(".phrase");
-const lune = document.querySelector(".play");
-const chanson = document.querySelector("#chanson");
-const poeme = document.querySelector("#poeme");
+<!DOCTYPE html>
+<html lang="fr">
 
-let index = 0;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-function afficherPhrase() {
+    <title>Le Marchand de sable</title>
 
-    if (index < phrases.length) {
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        const phraseActuelle = phrases[index];
+<body>
 
-        // Apparition
-        phraseActuelle.classList.add("visible");
+<div class="experience">
 
-        // La phrase reste visible 5 secondes
-        setTimeout(() => {
+    <div class="paysage"></div>
 
-            // Disparition
-            phraseActuelle.classList.remove("visible");
+    <div class="phrase">
+        Vous êtes sur les traces du <span>Marchand de sable</span>.
+    </div>
 
-            // On attend avant la phrase suivante
-            setTimeout(() => {
+    <div class="phrase">
+        Encore un pas…
+    </div>
 
-                index++;
+    <div class="phrase">
+        Ralentissez.
+    </div>
 
-                afficherPhrase();
+    <div class="phrase">
+        Respirez.
+    </div>
 
-            }, 2000);
+    <div class="phrase">
+        Mettez vos écouteurs.
+    </div>
 
-        }, 5000);
+    <div class="phrase">
+        Laissez votre regard se poser sur le paysage.
+    </div>
 
-    } else {
+    <div class="play">
 
-        // Toutes les phrases ont disparu.
-        // La lune apparaît après 3 secondes.
-        setTimeout(() => {
+        <div class="moon"></div>
 
-            lune.classList.add("visible");
+        <p>
+            Touchez le cercle pour débuter votre voyage sonore
+        </p>
 
-        }, 3000);
+    </div>
 
-    }
-}
+</div>
 
-afficherPhrase();
+<audio id="chanson">
+    <source src="Le marchand de sable mix 4 premaster.mp3" type="audio/mpeg">
+</audio>
 
+<audio id="poeme">
+    <source src="voix poeme.wav" type="audio/wav">
+</audio>
 
-// CLIC SUR LA LUNE = DÉMARRAGE DE LA CHANSON
+<script src="script.js"></script>
 
-lune.addEventListener("click", function () {
-
-    chanson.play();
-
-});
-
-
-// QUAND LA CHANSON EST TERMINÉE = DÉMARRAGE DU POÈME
-
-chanson.addEventListener("ended", function () {
-
-    poeme.play();
-
-});
+</body>
+</html>
