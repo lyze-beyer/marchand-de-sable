@@ -40,7 +40,7 @@ function afficherPhrase() {
 
             lune.classList.add("visible");
 
-        }, 3000);
+        }, 1000);
 
     }
 }
