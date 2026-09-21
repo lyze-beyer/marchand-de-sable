@@ -58,11 +58,21 @@ lune.addEventListener("click", function () {
 
 // =========================
 // DISPARITION DU CERCLE
+// 5 SECONDES AVANT LA FIN
 // =========================
+
+audio.addEventListener("loadedmetadata", function () {
+
+    console.log("Durée du son :", audio.duration);
+
+});
 
 audio.addEventListener("timeupdate", function () {
 
-    if (audio.duration - audio.currentTime <= 5) {
+    if (
+        audio.duration &&
+        audio.currentTime >= audio.duration - 5
+    ) {
 
         lune.classList.remove("visible");
 
