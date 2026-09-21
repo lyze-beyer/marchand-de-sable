@@ -47,12 +47,30 @@ afficherPhrase();
 
 
 // =========================
-// CLIC SUR LE CERCLE = AUDIO
+// CLIC UNIQUEMENT SUR LE CERCLE
 // =========================
 
-lune.addEventListener("click", function () {
+lune.addEventListener("click", function (event) {
+
+    event.stopPropagation();
 
     audio.play();
+
+});
+
+
+// =========================
+// EMPÊCHE TOUT AUTRE CLIC
+// DE DÉCLENCHER L'AUDIO
+// =========================
+
+document.addEventListener("click", function (event) {
+
+    if (!event.target.closest(".play")) {
+
+        event.preventDefault();
+
+    }
 
 });
 
