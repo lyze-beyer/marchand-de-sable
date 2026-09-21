@@ -5,23 +5,23 @@ const poeme = document.querySelector("#poeme");
 
 let index = 0;
 
+
+// =========================
+// APPARITION DES PHRASES
+// =========================
+
 function afficherPhrase() {
 
     if (index < phrases.length) {
 
         const phraseActuelle = phrases[index];
 
-        // Apparition
         phraseActuelle.classList.add("visible");
 
-        // La phrase reste visible 5 secondes
         setTimeout(() => {
 
-            // Disparition
             phraseActuelle.classList.remove("visible");
 
-            // On attend que le fondu soit terminé
-            // avant de faire apparaître la suivante
             setTimeout(() => {
 
                 index++;
@@ -34,8 +34,6 @@ function afficherPhrase() {
 
     } else {
 
-        // Toutes les phrases ont disparu.
-        // La lune apparaît après 3 secondes.
         setTimeout(() => {
 
             lune.classList.add("visible");
@@ -48,7 +46,9 @@ function afficherPhrase() {
 afficherPhrase();
 
 
-// CLIC SUR LA LUNE = DÉMARRAGE DE LA CHANSON
+// =========================
+// CLIC SUR LE CERCLE
+// =========================
 
 lune.addEventListener("click", function () {
 
@@ -57,18 +57,12 @@ lune.addEventListener("click", function () {
 });
 
 
-// QUAND LA CHANSON EST TERMINÉE = DÉMARRAGE DU POÈME
+// =========================
+// FIN DE LA CHANSON
+// =========================
 
-let poemeLance = false;
+chanson.addEventListener("ended", function () {
 
-chanson.addEventListener("timeupdate", function () {
-
-    if (!poemeLance && chanson.duration - chanson.currentTime <= 6) {
-
-        poemeLance = true;
-
-        poeme.play();
-
-    }
+    poeme.play();
 
 });
