@@ -47,28 +47,30 @@ afficherPhrase();
 
 
 // =========================
-// CLIC UNIQUEMENT SUR LE CERCLE
+// DÉMARRAGE DE L'AUDIO
+// UNIQUEMENT SUR LE CERCLE
+// SOURIS + TÉLÉPHONE
 // =========================
 
-lune.addEventListener("click", function (event) {
+lune.addEventListener("pointerup", function (event) {
 
-    event.stopPropagation();
+    event.preventDefault();
 
-    audio.play();
+    if (!lune.classList.contains("visible")) {
+        return;
+    }
 
-});
+    audio.currentTime = 0;
 
+    const lecture = audio.play();
 
-// =========================
-// EMPÊCHE TOUT AUTRE CLIC
-// DE DÉCLENCHER L'AUDIO
-// =========================
+    if (lecture !== undefined) {
 
-document.addEventListener("click", function (event) {
+        lecture.catch(function (erreur) {
 
-    if (!event.target.closest(".play")) {
+            console.log("Lecture audio impossible :", erreur);
 
-        event.preventDefault();
+        });
 
     }
 
@@ -99,6 +101,8 @@ audio.addEventListener("timeupdate", function () {
 // =========================
 
 audio.addEventListener("ended", function () {
+
+    lune.classList.remove("visible");
 
     fin.classList.add("visible");
 
