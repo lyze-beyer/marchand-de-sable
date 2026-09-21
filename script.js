@@ -1,7 +1,6 @@
 const phrases = document.querySelectorAll(".phrase");
 const lune = document.querySelector(".play");
-const chanson = document.querySelector("#chanson");
-const poeme = document.querySelector("#poeme");
+const audio = document.querySelector("#audio");
 
 let index = 0;
 
@@ -47,22 +46,11 @@ afficherPhrase();
 
 
 // =========================
-// CLIC SUR LE CERCLE
+// CLIC SUR LE CERCLE = AUDIO
 // =========================
 
 lune.addEventListener("click", function () {
 
-    chanson.play();
-
-});
-
-
-// =========================
-// FIN DE LA CHANSON
-// =========================
-
-chanson.addEventListener("ended", function () {
-
-    poeme.play();
+    audio.play();
 
 });
