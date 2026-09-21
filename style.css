@@ -234,6 +234,26 @@ body {
     text-align: center;
 }
 
+
+/* =========================
+   BOUTEILLE
+   ========================= */
+
+.bouteille {
+    display: block;
+
+    width: 180px;
+    max-width: 45vw;
+    height: auto;
+
+    margin: 0 auto 35px;
+}
+
+
+/* =========================
+   TEXTE FINAL
+   ========================= */
+
 .fin p {
     margin: 0 0 20px;
 
@@ -245,6 +265,11 @@ body {
 .fin p + p {
     margin-bottom: 50px;
 }
+
+
+/* =========================
+   BOUTON FINAL
+   ========================= */
 
 .fin button {
     padding: 16px 30px;
@@ -294,6 +319,12 @@ body {
 
     .play p {
         font-size: 1.4rem;
+    }
+
+    .bouteille {
+        width: 140px;
+
+        margin-bottom: 25px;
     }
 
     .fin p {
