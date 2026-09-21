@@ -232,6 +232,8 @@ body {
     max-width: 700px;
 
     text-align: center;
+
+    transform: translateY(-70px);
 }
 
 
@@ -242,11 +244,11 @@ body {
 .bouteille {
     display: block;
 
-    width: 180px;
-    max-width: 45vw;
+    width: 80px;
+    max-width: 25vw;
     height: auto;
 
-    margin: 0 auto 35px;
+    margin: 0 auto 25px;
 }
 
 
@@ -322,9 +324,9 @@ body {
     }
 
     .bouteille {
-        width: 140px;
+        width: 65px;
 
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     .fin p {
