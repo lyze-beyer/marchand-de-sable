@@ -195,6 +195,83 @@ body {
 
 
 /* =========================
+   ÉCRAN FINAL
+   ========================= */
+
+.fin {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: #000;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 3s ease;
+
+    z-index: 10;
+}
+
+.fin.visible {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+.fin-contenu {
+    width: 90%;
+    max-width: 700px;
+
+    text-align: center;
+}
+
+.fin p {
+    margin: 0 0 20px;
+
+    font-size: 2.2rem;
+
+    line-height: 1.5;
+}
+
+.fin p + p {
+    margin-bottom: 50px;
+}
+
+.fin button {
+    padding: 16px 30px;
+
+    background: transparent;
+
+    color: #f3ead8;
+
+    border: 1px solid #f3ead8;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 1.2rem;
+
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.fin button:hover {
+    background: #f3ead8;
+
+    color: #000;
+}
+
+
+/* =========================
    TÉLÉPHONE
    ========================= */
 
@@ -202,6 +279,7 @@ body {
 
     .phrase {
         width: 94%;
+
         font-size: 3rem;
     }
 
@@ -212,5 +290,13 @@ body {
 
     .play p {
         font-size: 1.4rem;
+    }
+
+    .fin p {
+        font-size: 1.8rem;
+    }
+
+    .fin button {
+        font-size: 1rem;
     }
 }
