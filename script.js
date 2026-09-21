@@ -86,7 +86,7 @@ audio.addEventListener("timeupdate", function () {
 
     if (
         audio.duration &&
-        audio.currentTime >= audio.duration - 5
+        audio.currentTime >= audio.duration - 12
     ) {
 
         lune.classList.remove("visible");
