@@ -54,3 +54,18 @@ lune.addEventListener("click", function () {
     audio.play();
 
 });
+
+
+// =========================
+// DISPARITION DU CERCLE
+// =========================
+
+audio.addEventListener("timeupdate", function () {
+
+    if (audio.duration - audio.currentTime <= 5) {
+
+        lune.classList.remove("visible");
+
+    }
+
+});
