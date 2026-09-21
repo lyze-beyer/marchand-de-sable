@@ -205,8 +205,8 @@ body {
 .bouteille {
     display: block;
 
-    width: 150px;
-    max-width: 45vw;
+    width: 180px;
+    max-width: 55vw;
     height: auto;
 
     margin: 0 auto 25px;
@@ -275,12 +275,6 @@ body {
 
     .play p {
         font-size: 1.4rem;
-    }
-
-    .bouteille {
-        width: 150px;
-        max-width: 55vw;
-        margin-bottom: 20px;
     }
 
     .fin p {
