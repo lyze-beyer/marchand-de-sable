@@ -9,7 +9,6 @@ body {
     padding: 0;
 
     background: #000;
-
     color: #f3ead8;
 
     height: 100vh;
@@ -56,6 +55,8 @@ body {
     transition: opacity 2s ease;
 
     pointer-events: none;
+
+    z-index: 1;
 }
 
 .phrase.visible {
@@ -73,17 +74,12 @@ body {
    POSITIONS DES PHRASES
    ========================= */
 
-/* Phrase 1 */
-
 .phrase:nth-child(2) {
     top: 50%;
     left: 50%;
 
     transform: translate(-50%, -50%);
 }
-
-
-/* Phrase 2 */
 
 .phrase:nth-child(3) {
     top: 30%;
@@ -92,18 +88,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
-
-/* Phrase 3 */
-
 .phrase:nth-child(4) {
     top: 38%;
     left: 53%;
 
     transform: translate(-50%, -50%);
 }
-
-
-/* Phrase 4 */
 
 .phrase:nth-child(5) {
     top: 68%;
@@ -112,18 +102,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
-
-/* Phrase 5 */
-
 .phrase:nth-child(6) {
     top: 65%;
     left: 52%;
 
     transform: translate(-50%, -50%);
 }
-
-
-/* Phrase 6 */
 
 .phrase:nth-child(7) {
     top: 50%;
@@ -148,6 +132,8 @@ body {
     opacity: 0;
 
     transition: opacity 2s ease;
+
+    z-index: 2;
 }
 
 .play.visible {
@@ -201,7 +187,13 @@ body {
 .fin {
     position: fixed;
 
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
 
     display: flex;
 
@@ -212,17 +204,27 @@ body {
 
     opacity: 0;
 
+    visibility: hidden;
+
     pointer-events: none;
 
-    transition: opacity 3s ease;
+    transition:
+        opacity 3s ease,
+        visibility 0s linear 3s;
 
-    z-index: 10;
+    z-index: 9999;
 }
 
 .fin.visible {
     opacity: 1;
 
+    visibility: visible;
+
     pointer-events: auto;
+
+    transition:
+        opacity 3s ease,
+        visibility 0s linear 0s;
 }
 
 .fin-contenu {
@@ -230,19 +232,51 @@ body {
     max-width: 700px;
 
     text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
 }
 
+
+/* =========================
+   BOUTEILLE
+   ========================= */
+
+.bouteille {
+    display: block;
+
+    width: 260px;
+    max-width: 65vw;
+
+    height: auto;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   TEXTE FINAL
+   ========================= */
+
 .fin p {
-    margin: 0 0 20px;
+    margin: 0 0 12px;
 
-    font-size: 2.2rem;
+    font-size: 1.8rem;
 
-    line-height: 1.5;
+    line-height: 1.4;
 }
 
 .fin p + p {
-    margin-bottom: 50px;
+    margin-bottom: 35px;
 }
+
+
+/* =========================
+   BOUTON
+   ========================= */
 
 .fin button {
     padding: 16px 30px;
@@ -261,7 +295,9 @@ body {
 
     cursor: pointer;
 
-    transition: background 0.5s ease, color 0.5s ease;
+    transition:
+        background 0.5s ease,
+        color 0.5s ease;
 }
 
 .fin button:hover {
@@ -292,8 +328,17 @@ body {
         font-size: 1.4rem;
     }
 
+    .bouteille {
+        width: 190px;
+        max-width: 58vw;
+
+        margin-bottom: 24px;
+    }
+
     .fin p {
-        font-size: 1.8rem;
+        font-size: 1.35rem;
+
+        line-height: 1.4;
     }
 
     .fin button {
