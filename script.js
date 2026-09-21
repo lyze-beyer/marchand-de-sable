@@ -1,6 +1,7 @@
 const phrases = document.querySelectorAll(".phrase");
 const lune = document.querySelector(".play");
 const audio = document.querySelector("#audio");
+const fin = document.querySelector(".fin");
 
 let index = 0;
 
@@ -61,12 +62,6 @@ lune.addEventListener("click", function () {
 // 5 SECONDES AVANT LA FIN
 // =========================
 
-audio.addEventListener("loadedmetadata", function () {
-
-    console.log("Durée du son :", audio.duration);
-
-});
-
 audio.addEventListener("timeupdate", function () {
 
     if (
@@ -77,5 +72,16 @@ audio.addEventListener("timeupdate", function () {
         lune.classList.remove("visible");
 
     }
+
+});
+
+
+// =========================
+// FIN DU VOYAGE SONORE
+// =========================
+
+audio.addEventListener("ended", function () {
+
+    fin.classList.add("visible");
 
 });
