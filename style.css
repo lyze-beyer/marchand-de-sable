@@ -1,7 +1,11 @@
 
 
- 
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italianno&display=swap');
+
+/* =========================
+   RÉGLAGES GÉNÉRAUX
+   ========================= */
 
 * {
     box-sizing: border-box;
@@ -93,100 +97,140 @@ body {
    FAISCEAU BLEU NUIT
    ========================= */
 
-/* Le titre reste ivoire */
+/* Apparition plus rapide pour laisser
+   le temps au faisceau d'être visible */
+
+.phrase:nth-child(2) {
+    transition: opacity 0.45s ease;
+    isolation: isolate;
+}
+
+/* Reflet bleu argenté sur les lettres */
+
 .phrase:nth-child(2) span {
     position: relative;
     display: inline-block;
-    isolation: isolate;
+
     color: #f3ead8;
-}
 
-/* Faisceau lumineux derrière les lettres */
-.phrase:nth-child(2) span::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-
-    top: -35%;
-    bottom: -35%;
-    left: -15%;
-
-    width: 42%;
-
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(12, 28, 58, 0.08) 12%,
-        rgba(25, 56, 103, 0.35) 38%,
-        rgba(103, 153, 202, 0.55) 50%,
-        rgba(25, 56, 103, 0.35) 62%,
-        rgba(12, 28, 58, 0.08) 88%,
-        transparent 100%
-    );
-
-    filter: blur(16px);
-    transform: translateX(-180%) skewX(-18deg);
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Reflet froid à l'intérieur des lettres */
-.phrase:nth-child(2) span {
     background-image: linear-gradient(
         105deg,
         #f3ead8 0%,
-        #f3ead8 39%,
-        #a7c6e2 47%,
-        #e5f2ff 50%,
-        #a7c6e2 53%,
-        #f3ead8 61%,
+        #f3ead8 35%,
+        #789bc7 43%,
+        #c0ddff 47%,
+        #ffffff 50%,
+        #c0ddff 53%,
+        #789bc7 57%,
+        #f3ead8 65%,
         #f3ead8 100%
     );
 
-    background-size: 250% 100%;
+    background-size: 300% 100%;
     background-position: 100% 50%;
 
     -webkit-background-clip: text;
     background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
-/* Un seul passage lors de l'apparition */
-.phrase:nth-child(2).visible span::before {
-    animation: faisceauBleuNuit 2.2s ease-in-out 0.3s 1 both;
+/* Faisceau diagonal sur la phrase */
+
+.phrase:nth-child(2)::after {
+    content: "";
+    position: absolute;
+
+    top: -65%;
+    bottom: -65%;
+    left: 0;
+
+    width: 32%;
+
+    pointer-events: none;
+    z-index: 3;
+
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(15, 35, 80, 0.04) 8%,
+        rgba(30, 72, 140, 0.20) 25%,
+        rgba(74, 130, 204, 0.42) 40%,
+        rgba(160, 206, 255, 0.62) 48%,
+        rgba(220, 239, 255, 0.76) 50%,
+        rgba(160, 206, 255, 0.62) 52%,
+        rgba(74, 130, 204, 0.42) 60%,
+        rgba(30, 72, 140, 0.20) 75%,
+        transparent 100%
+    );
+
+    filter: blur(15px);
+    mix-blend-mode: screen;
+
+    opacity: 0;
+
+    transform:
+        translateX(-150%)
+        skewX(-17deg);
 }
+
+/* Déclenchement des animations */
 
 .phrase:nth-child(2).visible span {
-    animation: refletBleuNuit 2.2s ease-in-out 0.3s 1 both;
+    animation:
+        revelationTitre 2.25s linear 0.25s 1 forwards;
 }
 
-@keyframes faisceauBleuNuit {
+.phrase:nth-child(2).visible::after {
+    animation:
+        passageSecret 2.35s ease-in-out 0.15s 1 both;
+}
+
+/* Reflet à l'intérieur des lettres */
+
+@keyframes revelationTitre {
     0% {
-        transform: translateX(-180%) skewX(-18deg);
+        background-position: 100% 50%;
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.35);
+    }
+
+    100% {
+        background-position: 0% 50%;
+        filter: brightness(1);
+    }
+}
+
+/* Traversée du faisceau bleu nuit */
+
+@keyframes passageSecret {
+    0% {
+        transform:
+            translateX(-150%)
+            skewX(-17deg);
         opacity: 0;
     }
 
-    20% {
+    15% {
         opacity: 0.85;
     }
 
-    70% {
+    45% {
+        opacity: 1;
+    }
+
+    75% {
         opacity: 0.85;
     }
 
     100% {
-        transform: translateX(380%) skewX(-18deg);
+        transform:
+            translateX(430%)
+            skewX(-17deg);
         opacity: 0;
-    }
-}
-
-@keyframes refletBleuNuit {
-    from {
-        background-position: 100% 50%;
-    }
-
-    to {
-        background-position: 0% 50%;
     }
 }
 
@@ -198,9 +242,12 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     opacity: 0;
     transition: opacity 2s ease;
+
     z-index: 2;
 }
 
@@ -211,6 +258,7 @@ body {
 .moon {
     width: 220px;
     height: 220px;
+
     border-radius: 50%;
     border: 2px solid #f3ead8;
 
@@ -243,6 +291,7 @@ body {
 
 .fin {
     position: fixed;
+
     top: 0;
     right: 0;
     bottom: 0;
@@ -281,6 +330,7 @@ body {
 .fin-contenu {
     width: 90%;
     max-width: 700px;
+
     text-align: center;
     transform: translateY(-70px);
 }
@@ -291,9 +341,11 @@ body {
 
 .bouteille {
     display: block;
+
     width: 180px;
     max-width: 55vw;
     height: auto;
+
     margin: 0 auto 25px;
 }
 
@@ -312,13 +364,15 @@ body {
 }
 
 /* =========================
-   BOUTON
+   BOUTON FINAL
    ========================= */
 
 .fin button {
     padding: 16px 30px;
+
     background: transparent;
     color: #f3ead8;
+
     border: 1px solid #f3ead8;
 
     font-family: "Cormorant Garamond", serif;
@@ -396,6 +450,7 @@ body {
 .questionnaire textarea {
     display: block;
     width: 100%;
+
     padding: 12px 14px;
 
     border: 1px solid #b5aa97;
@@ -417,6 +472,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 12px;
+
     margin-top: 10px;
     font-size: 1.1rem;
 }
@@ -425,6 +481,7 @@ body {
     flex-shrink: 0;
     width: 18px;
     height: 18px;
+
     margin-top: 4px;
     accent-color: #f3ead8;
 }
@@ -458,10 +515,11 @@ body {
 }
 
 /* =========================
-   TÉLÉPHONE
+   AFFICHAGE SUR TÉLÉPHONE
    ========================= */
 
 @media (max-width: 600px) {
+
     .phrase {
         width: 94%;
         font-size: 3rem;
@@ -503,6 +561,5 @@ body {
         font-size: 1.15rem;
     }
 }
-
    
  
