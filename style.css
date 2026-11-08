@@ -1,6 +1,4 @@
 
-
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italianno&display=swap');
 
 /* =========================
@@ -32,6 +30,7 @@ body {
     position: relative;
 }
 
+
 /* =========================
    LES PHRASES
    ========================= */
@@ -57,6 +56,7 @@ body {
     font-family: "Italianno", cursive;
     font-size: 1.35em;
 }
+
 
 /* =========================
    POSITIONS DES PHRASES
@@ -92,147 +92,72 @@ body {
     transform: translate(-50%, -50%);
 }
 
+
 /* =========================
    PREMIÈRE PHRASE
-   FAISCEAU BLEU NUIT
+   RÉVÉLATION MYSTÉRIEUSE
    ========================= */
 
-/* Apparition plus rapide pour laisser
-   le temps au faisceau d'être visible */
+/*
+   Les premiers mots apparaissent.
+   Le nom "Marchand de sable" se dévoile
+   progressivement de gauche à droite.
+
+   La lumière reste fixe.
+   Aucun faisceau ne traverse l'écran.
+*/
 
 .phrase:nth-child(2) {
-    transition: opacity 0.45s ease;
-    isolation: isolate;
+    transition: opacity 0.65s ease;
 }
 
-/* Reflet bleu argenté sur les lettres */
+/* Le titre */
 
 .phrase:nth-child(2) span {
     position: relative;
     display: inline-block;
 
     color: #f3ead8;
+    -webkit-text-fill-color: #f3ead8;
 
-    background-image: linear-gradient(
-        105deg,
-        #f3ead8 0%,
-        #f3ead8 35%,
-        #789bc7 43%,
-        #c0ddff 47%,
-        #ffffff 50%,
-        #c0ddff 53%,
-        #789bc7 57%,
-        #f3ead8 65%,
-        #f3ead8 100%
-    );
+    /* Lumière fixe bleu nuit et argentée */
 
-    background-size: 300% 100%;
-    background-position: 100% 50%;
+    text-shadow:
+        0 0 8px rgba(220, 232, 250, 0.55),
+        0 0 20px rgba(115, 150, 205, 0.45),
+        0 0 42px rgba(40, 75, 140, 0.38),
+        0 0 75px rgba(14, 30, 75, 0.30);
 
-    -webkit-background-clip: text;
-    background-clip: text;
+    /* Nom invisible au départ */
 
-    -webkit-text-fill-color: transparent;
+    clip-path: inset(0 100% 0 0);
 }
 
-/* Faisceau diagonal sur la phrase */
-
-.phrase:nth-child(2)::after {
-    content: "";
-    position: absolute;
-
-    top: -65%;
-    bottom: -65%;
-    left: 0;
-
-    width: 32%;
-
-    pointer-events: none;
-    z-index: 3;
-
-    background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(15, 35, 80, 0.04) 8%,
-        rgba(30, 72, 140, 0.20) 25%,
-        rgba(74, 130, 204, 0.42) 40%,
-        rgba(160, 206, 255, 0.62) 48%,
-        rgba(220, 239, 255, 0.76) 50%,
-        rgba(160, 206, 255, 0.62) 52%,
-        rgba(74, 130, 204, 0.42) 60%,
-        rgba(30, 72, 140, 0.20) 75%,
-        transparent 100%
-    );
-
-    filter: blur(15px);
-    mix-blend-mode: screen;
-
-    opacity: 0;
-
-    transform:
-        translateX(-150%)
-        skewX(-17deg);
-}
-
-/* Déclenchement des animations */
+/* Dévoilement progressif du nom */
 
 .phrase:nth-child(2).visible span {
     animation:
-        revelationTitre 2.25s linear 0.25s 1 forwards;
+        apparitionNom 2.15s cubic-bezier(0.45, 0, 0.25, 1) 0.45s 1 forwards;
 }
 
-.phrase:nth-child(2).visible::after {
-    animation:
-        passageSecret 2.35s ease-in-out 0.15s 1 both;
-}
+@keyframes apparitionNom {
 
-/* Reflet à l'intérieur des lettres */
-
-@keyframes revelationTitre {
     0% {
-        background-position: 100% 50%;
-        filter: brightness(1);
+        clip-path: inset(0 100% 0 0);
+        filter: brightness(0.8);
     }
 
-    50% {
-        filter: brightness(1.35);
+    60% {
+        filter: brightness(1.25);
     }
 
     100% {
-        background-position: 0% 50%;
+        clip-path: inset(0 0 0 0);
         filter: brightness(1);
     }
+
 }
 
-/* Traversée du faisceau bleu nuit */
-
-@keyframes passageSecret {
-    0% {
-        transform:
-            translateX(-150%)
-            skewX(-17deg);
-        opacity: 0;
-    }
-
-    15% {
-        opacity: 0.85;
-    }
-
-    45% {
-        opacity: 1;
-    }
-
-    75% {
-        opacity: 0.85;
-    }
-
-    100% {
-        transform:
-            translateX(430%)
-            skewX(-17deg);
-        opacity: 0;
-    }
-}
 
 /* =========================
    LA LUNE
@@ -275,7 +200,11 @@ body {
     line-height: 1.5;
 }
 
+
+/* Respiration douce du cercle */
+
 @keyframes respiration {
+
     0%, 100% {
         transform: scale(1);
     }
@@ -283,7 +212,9 @@ body {
     50% {
         transform: scale(1.06);
     }
+
 }
+
 
 /* =========================
    ÉCRAN FINAL
@@ -332,8 +263,10 @@ body {
     max-width: 700px;
 
     text-align: center;
+
     transform: translateY(-70px);
 }
+
 
 /* =========================
    BOUTEILLE
@@ -349,6 +282,7 @@ body {
     margin: 0 auto 25px;
 }
 
+
 /* =========================
    TEXTE FINAL
    ========================= */
@@ -363,6 +297,7 @@ body {
     margin-bottom: 50px;
 }
 
+
 /* =========================
    BOUTON FINAL
    ========================= */
@@ -376,6 +311,7 @@ body {
     border: 1px solid #f3ead8;
 
     font-family: "Cormorant Garamond", serif;
+
     font-size: 1.2rem;
     letter-spacing: 0.12em;
 
@@ -391,6 +327,7 @@ body {
     color: #000;
 }
 
+
 /* =========================
    QUESTIONNAIRE
    ========================= */
@@ -402,6 +339,7 @@ body {
 .questionnaire {
     position: fixed;
     inset: 0;
+
     z-index: 10000;
 
     display: flex;
@@ -419,16 +357,20 @@ body {
     width: 100%;
     max-width: 560px;
     max-height: 100%;
+
     margin: auto;
     padding: 20px 0;
+
     text-align: center;
 }
 
 .questionnaire h2 {
     font-family: "Cormorant Garamond", serif;
+
     font-size: 2.5rem;
     font-weight: 400;
     line-height: 1.2;
+
     margin: 0 0 35px;
 }
 
@@ -441,6 +383,7 @@ body {
 .questionnaire label {
     display: block;
     text-align: left;
+
     font-size: 1.35rem;
     line-height: 1.35;
 }
@@ -479,10 +422,12 @@ body {
 
 .questionnaire input[type="checkbox"] {
     flex-shrink: 0;
+
     width: 18px;
     height: 18px;
 
     margin-top: 4px;
+
     accent-color: #f3ead8;
 }
 
@@ -495,14 +440,17 @@ body {
 
 .questionnaire button {
     align-self: center;
+
     margin-top: 10px;
     padding: 15px 28px;
 
     border: 1px solid #f3ead8;
+
     background: transparent;
     color: #f3ead8;
 
     font-family: "Cormorant Garamond", serif;
+
     font-size: 1.2rem;
     letter-spacing: 0.1em;
 
@@ -513,6 +461,7 @@ body {
     background: #f3ead8;
     color: #000;
 }
+
 
 /* =========================
    AFFICHAGE SUR TÉLÉPHONE
@@ -560,6 +509,8 @@ body {
     .questionnaire textarea {
         font-size: 1.15rem;
     }
+
 }
+
    
  
