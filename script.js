@@ -9,6 +9,7 @@ let index = 0;
 
 // =========================
 // APPARITION DES PHRASES
+// INTRODUCTION PLUS COURTE
 // =========================
 
 function afficherPhrase() {
@@ -29,9 +30,9 @@ function afficherPhrase() {
 
                 afficherPhrase();
 
-            }, 2000);
+            }, 1000);
 
-        }, 5000);
+        }, 3000);
 
     } else {
 
@@ -39,7 +40,7 @@ function afficherPhrase() {
 
             lune.classList.add("visible");
 
-        }, 1000);
+        }, 500);
 
     }
 }
@@ -210,6 +211,7 @@ formulaireTrace.addEventListener("submit", async function (event) {
     }
 
 });
+
 
 
 
