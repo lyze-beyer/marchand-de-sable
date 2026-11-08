@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Italianno&display=swap');
 
 * {
@@ -87,10 +88,51 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.phrase:nth-child(7) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+/* =========================
+   PREMIÈRE PHRASE
+   REFLET LUMINEUX CINÉMATOGRAPHIQUE
+   ========================= */
+
+.phrase:nth-child(2) span {
+    display: inline-block;
+
+    color: #f3ead8;
+
+    background: linear-gradient(
+        105deg,
+        #f3ead8 0%,
+        #f3ead8 42%,
+        #fff9ed 48%,
+        #e8c995 50%,
+        #fff9ed 52%,
+        #f3ead8 58%,
+        #f3ead8 100%
+    );
+
+    background-size: 300% 100%;
+    background-position: 100% 0;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.phrase:nth-child(2).visible span {
+    animation: refletMarchand 2.5s ease-in-out 0.2s 1 both;
+}
+
+@keyframes refletMarchand {
+
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: 0% 0;
+    }
+
 }
 
 
@@ -145,6 +187,7 @@ body {
     50% {
         transform: scale(1.06);
     }
+
 }
 
 
@@ -424,4 +467,6 @@ body {
     .questionnaire textarea {
         font-size: 1.15rem;
     }
+
 }
+
