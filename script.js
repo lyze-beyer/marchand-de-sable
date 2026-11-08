@@ -79,7 +79,7 @@ lune.addEventListener("pointerup", function (event) {
 
 // =========================
 // DISPARITION DU CERCLE
-// 5 SECONDES AVANT LA FIN
+// 12 SECONDES AVANT LA FIN
 // =========================
 
 audio.addEventListener("timeupdate", function () {
@@ -105,5 +105,21 @@ audio.addEventListener("ended", function () {
     lune.classList.remove("visible");
 
     fin.classList.add("visible");
+
+});
+
+
+// =========================
+// OUVERTURE DU QUESTIONNAIRE
+// =========================
+
+const boutonTrace = document.querySelector("#ouvrir-questionnaire");
+const questionnaire = document.querySelector("#questionnaire");
+
+boutonTrace.addEventListener("click", function () {
+
+    fin.classList.remove("visible");
+
+    questionnaire.hidden = false;
 
 });
