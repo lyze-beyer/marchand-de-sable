@@ -68,9 +68,78 @@
                 ou de laisser votre trace.
             </p>
 
-            <button>
+            <button id="ouvrir-questionnaire" type="button">
                 LAISSER MA TRACE
             </button>
+
+        </div>
+
+    </div>
+
+    <!-- QUESTIONNAIRE -->
+
+    <div class="questionnaire" id="questionnaire" hidden>
+
+        <div class="questionnaire-contenu">
+
+            <h2>Votre trace dans la bouteille</h2>
+
+            <form id="formulaire-trace">
+
+                <label for="prenom">
+                    Votre prénom ou pseudo
+                </label>
+
+                <input
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    maxlength="80"
+                    required
+                >
+
+                <label for="temoignage">
+                    Votre témoignage de l’expérience
+                </label>
+
+                <textarea
+                    id="temoignage"
+                    name="temoignage"
+                    rows="5"
+                    required
+                ></textarea>
+
+                <label for="email">
+                    Votre adresse email (facultatif)
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                >
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="newsletter"
+                        name="newsletter"
+                    >
+                    Je souhaite recevoir par email les actualités
+                    musicales de Lyze Beyer, notamment ses prochaines sorties.
+                </label>
+
+                <p>
+                    Votre témoignage sera recueilli dans le cadre
+                    du projet Le Marchand de sable.
+                    L'inscription aux actualités musicales est facultative.
+                </p>
+
+                <button type="submit">
+                    ENVOYER MA TRACE
+                </button>
+
+            </form>
 
         </div>
 
