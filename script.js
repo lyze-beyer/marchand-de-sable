@@ -1,4 +1,5 @@
 
+
 const phrases = document.querySelectorAll(".phrase");
 const lune = document.querySelector(".play");
 const audio = document.querySelector("#audio");
@@ -68,7 +69,19 @@ lune.addEventListener("pointerup", function (event) {
 
     if (lecture !== undefined) {
 
-        lecture.catch(function (erreur) {
+        lecture.then(function () {
+
+            // =========================
+            // COMPTEUR D'ÉCOUTES UMAMI
+            // =========================
+
+            if (typeof window.umami !== "undefined") {
+
+                window.umami.track("ecoute_marchand_de_sable");
+
+            }
+
+        }).catch(function (erreur) {
 
             console.log("Lecture audio impossible :", erreur);
 
@@ -212,7 +225,15 @@ formulaireTrace.addEventListener("submit", async function (event) {
 
 });
 
+     
 
+
+
+  
+            
+
+        
+ 
 
 
 
